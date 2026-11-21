@@ -1,478 +1,157 @@
 index.html
-
-
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="ru">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#090d16">
-
 <title>NumScope | Phone Intelligence</title>
-
 <style>
-
-* {
-
-  box-sizing: border-box;
-
-}
-
-body {
-
-  margin: 0;
-
-  min-height: 100vh;
-
-  background: #090d16;
-
-  color: #edf3ff;
-
-  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-
-}
-
-.container {
-
-  width: 100%;
-
-  max-width: 680px;
-
-  margin: auto;
-
-  padding: 35px 20px;
-
-}
-
-.brand {
-
-  font-size: 24px;
-
-  font-weight: 800;
-
-  letter-spacing: 1px;
-
-}
-
-.logo {
-
-  color: #73a7ff;
-
-}
-
-h1 {
-
-  font-size: 42px;
-
-  line-height: 1.1;
-
-  margin-top: 65px;
-
-}
-
-.description {
-
-  color: #91a0b8;
-
-  line-height: 1.6;
-
-}
-
-.panel {
-
-  margin-top: 30px;
-
-  padding: 22px;
-
-  background: #111a29;
-
-  border: 1px solid #26344b;
-
-  border-radius: 20px;
-
-}
-
-label {
-
-  display: block;
-
-  font-size: 12px;
-
-  color: #91a0b8;
-
-  margin-bottom: 12px;
-
-}
-
-input {
-
-  width: 100%;
-
-  padding: 17px;
-
-  border-radius: 12px;
-
-  border: 1px solid #34445e;
-
-  background: #080e19;
-
-  color: white;
-
-  font-size: 17px;
-
-  outline: none;
-
-}
-
-input:focus {
-
-  border-color: #73a7ff;
-
-}
-
-button {
-
-  width: 100%;
-
-  margin-top: 14px;
-
-  padding: 16px;
-
-  border: 0;
-
-  border-radius: 12px;
-
-  background: #73a7ff;
-
-  color: #071326;
-
-  font-size: 16px;
-
-  font-weight: 750;
-
-  cursor: pointer;
-
-}
-
-button:active {
-
-  opacity: .8;
-
-}
-
-.hint {
-
-  color: #91a0b8;
-
-  font-size: 12px;
-
-  margin-top: 12px;
-
-}
-
-.error {
-
-  color: #ff9999;
-
-  margin-top: 12px;
-
-  font-size: 13px;
-
-}
-
-.results {
-
-  display: none;
-
-  margin-top: 25px;
-
-}
-
-.results.show {
-
-  display: block;
-
-}
-
-.result-title {
-
-  font-size: 19px;
-
-  font-weight: bold;
-
-  margin-bottom: 15px;
-
-}
-
-.result-link {
-
-  display: block;
-
-  padding: 15px;
-
-  margin-top: 9px;
-
-  background: #1b2b43;
-
-  border: 1px solid #334965;
-
-  border-radius: 12px;
-
-  color: #dce9ff;
-
-  text-decoration: none;
-
-  text-align: center;
-
-}
-
-.result-link:hover {
-
-  background: #263c5b;
-
-}
-
-.notice {
-
-  margin-top: 25px;
-
-  padding: 17px;
-
-  border: 1px solid #26344b;
-
-  border-radius: 14px;
-
-  color: #91a0b8;
-
-  font-size: 13px;
-
-  line-height: 1.6;
-
-}
-
-footer {
-
-  text-align: center;
-
-  margin-top: 35px;
-
-  color: #64748b;
-
-  font-size: 12px;
-
-}
-
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -20%,#1b3154,#090d16 55%);color:#edf3ff;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+.wrap{max-width:760px;margin:auto;padding:28px 18px 50px}
+.brand{font-size:23px;font-weight:850;letter-spacing:1px}
+.logo{color:#73a7ff}
+h1{font-size:clamp(34px,8vw,48px);line-height:1.04;margin:60px 0 16px;letter-spacing:-1.5px}
+.desc,.muted{color:#9cacc4;line-height:1.65}
+.panel,.notice,.card{background:#111a29;border:1px solid #263a56;border-radius:19px}
+.panel{margin-top:28px;padding:20px}
+label{display:block;font-size:11px;letter-spacing:1.4px;color:#9cacc4;margin-bottom:11px;font-weight:700}
+input{width:100%;padding:17px;border-radius:12px;border:1px solid #344b6b;background:#080e19;color:white;font-size:18px;outline:none}
+input:focus{border-color:#73a7ff}
+button{width:100%;margin-top:13px;padding:16px;border:0;border-radius:12px;background:#73a7ff;color:#071326;font-size:16px;font-weight:800;cursor:pointer}
+.hint,.muted{color:#8fa1bb;font-size:13px}
+.hint{margin-top:11px}
+.error{color:#ff9999;margin-top:12px;font-size:13px}
+.results{display:none;margin-top:22px}
+.results.show{display:block}
+.title{font-size:18px;font-weight:800;margin:24px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{padding:14px}
+.card small{display:block;color:#8fa1bb;font-size:11px;margin-bottom:8px}
+.card strong{font-size:15px;overflow-wrap:anywhere}
+.link{display:flex;justify-content:space-between;gap:10px;padding:14px;margin-top:9px;background:#1b2b43;border:1px solid #334965;border-radius:12px;color:#dce9ff;text-decoration:none}
+.notice{margin-top:22px;padding:16px;color:#9cacc4;font-size:12px;line-height:1.65}
+footer{text-align:center;margin-top:30px;color:#64748b;font-size:12px}
+@media(max-width:420px){.wrap{padding-left:15px;padding-right:15px}.panel{padding:16px}}
 </style>
-
 </head>
-
 <body>
+<main class="wrap">
+<div class="brand"><span class="logo">⌕</span> NumScope</div>
+<h1>Что известно<br>об этом номере?</h1>
+<p class="desc">Проверка телефонного номера и поиск его публичных упоминаний. Без доступа к закрытым базам и без раскрытия личности частных лиц.</p>
 
-<div class="container">
+<section class="panel">
+<label for="phone">НОМЕР ТЕЛЕФОНА</label>
+<input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 123-45-67" maxlength="30">
+<button id="check">Анализировать номер</button>
+<div class="hint">Укажи международный код страны, если он известен.</div>
+<div class="error" id="error" role="alert"></div>
 
-  <div class="brand">
-
-    <span class="logo">⌕</span> NumScope
-
-  </div>
-
-  <h1>Что известно<br>об этом номере?</h1>
-
-  <p class="description">
-
-    Инструмент поиска телефонных номеров
-
-    по открытым публичным источникам.
-
-  </p>
-
-  <div class="panel">
-
-    <label for="phone">НОМЕР ТЕЛЕФОНА</label>
-
-    <input
-
-      id="phone"
-
-      type="tel"
-
-      inputmode="tel"
-
-      placeholder="+7 900 123-45-67"
-
-      maxlength="30"
-
-    >
-
-    <button onclick="checkNumber()">
-
-      Проверить номер
-
-    </button>
-
-    <div class="hint">
-
-      Введи номер вместе с кодом страны.
-
-    </div>
-
-    <div class="error" id="error"></div>
-
-    <div class="results" id="results">
-
-      <div class="result-title" id="numberTitle"></div>
-
-      <p class="hint">
-
-        Найди публичные упоминания номера:
-
-      </p>
-
-      <div id="links"></div>
-
-    </div>
-
-  </div>
-
-  <div class="notice">
-
-    <b>Конфиденциальность</b><br>
-
-    NumScope не раскрывает личность владельца
-
-    номера и не использует закрытые базы данных.
-
-    Результаты поиска могут быть неполными
-
-    или ошибочными.
-
-  </div>
-
-  <footer>
-
-    NumScope © 2026<br>
-
-    Public OSINT Search Tool
-
-  </footer>
-
+<div class="results" id="results" aria-live="polite">
+<div class="title" id="numberTitle"></div>
+<div class="grid" id="facts"></div>
+<div class="title">Поиск в открытых источниках</div>
+<p class="muted">Сравни совпадения в разных источниках. Выдача не подтверждает владельца номера.</p>
+<div id="links"></div>
 </div>
+</section>
 
-<script>
+<div class="notice">
+<b>Важно о точности</b><br>
+Проверка основана на публичных планах нумерации. Она не доказывает, что номер активен, кому он принадлежит или какой оператор обслуживает его сейчас. Оператор и доступность могут меняться при переносе номера.
+</div>
+<footer>NumScope © 2026<br>Open-source intelligence for public information</footer>
+</main>
 
-function checkNumber() {
+<script type="module">
+import {parsePhoneNumberFromString} from 'https://esm.sh/libphonenumber-js@1.12.36';
 
-  const input = document.getElementById("phone");
+const $=id=>document.getElementById(id);
+const input=$('phone');
 
-  const error = document.getElementById("error");
-
-  const results = document.getElementById("results");
-
-  const links = document.getElementById("links");
-
-  const raw = input.value.trim();
-
-  const digits = raw.replace(/\D/g, "");
-
-  error.textContent = "";
-
-  results.classList.remove("show");
-
-  if (digits.length < 7 || digits.length > 15) {
-
-    error.textContent =
-
-      "Некорректный номер. Введи от 7 до 15 цифр.";
-
-    return;
-
-  }
-
-  const number =
-
-    (raw.startsWith("+") ? "+" : "") + digits;
-
-  document.getElementById("numberTitle").textContent =
-
-    "Результаты для " + number;
-
-  const query = encodeURIComponent('"' + number + '"');
-
-  const sources = [
-
-    {
-
-      name: "Google",
-
-      url: "https://www.google.com/search?q=" + query
-
-    },
-
-    {
-
-      name: "Яндекс",
-
-      url: "https://yandex.com/search/?text=" + query
-
-    },
-
-    {
-
-      name: "Bing",
-
-      url: "https://www.bing.com/search?q=" + query
-
-    },
-
-    {
-
-      name: "Tellows",
-
-      url: "https://www.tellows.com/num/" + digits
-
-    }
-
-  ];
-
-  links.replaceChildren();
-
-  sources.forEach(source => {
-
-    const a = document.createElement("a");
-
-    a.className = "result-link";
-
-    a.textContent = "Искать через " + source.name;
-
-    a.href = source.url;
-
-    a.target = "_blank";
-
-    a.rel = "noopener noreferrer";
-
-    links.appendChild(a);
-
-  });
-
-  results.classList.add("show");
-
+function fact(label,value){
+ const d=document.createElement('div');
+ d.className='card';
+ const s=document.createElement('small');
+ const b=document.createElement('strong');
+ s.textContent=label;
+ b.textContent=value||'Нет данных';
+ d.append(s,b);
+ $('facts').append(d);
 }
 
-document.getElementById("phone")
+function link(name,url){
+ const a=document.createElement('a');
+ a.className='link';
+ a.href=url;
+ a.target='_blank';
+ a.rel='noopener noreferrer';
+ a.textContent=name+'  ↗';
+ $('links').append(a);
+}
 
-  .addEventListener("keydown", function(event) {
+function check(){
+ const err=$('error');
+ const res=$('results');
 
-    if (event.key === "Enter") checkNumber();
+ err.textContent='';
+ res.classList.remove('show');
+ $('facts').replaceChildren();
+ $('links').replaceChildren();
 
-  });
+ let p;
+ try{
+  p=parsePhoneNumberFromString(input.value.trim());
+ }catch(e){}
 
+ if(!p||!p.isPossible()){
+  err.textContent='Не удалось распознать номер. Проверь код страны и длину.';
+  return;
+ }
+
+ const names=new Intl.DisplayNames(['ru'],{type:'region'});
+
+ fact('СТРАНА / РЕГИОН',
+  p.country?names.of(p.country)+' ('+p.country+')':'Не определена');
+
+ fact('КОД СТРАНЫ','+'+p.countryCallingCode);
+
+ fact('ТИП НОМЕРА',p.getType()||'Не определён');
+
+ fact('ПРОВЕРКА ДИАПАЗОНА',
+  p.isValid()?'Соответствует плану нумерации':'Возможен, но не подтверждён');
+
+ fact('ФОРМАТ E.164',p.number);
+
+ fact('МЕСТНЫЙ ФОРМАТ',p.formatNational());
+
+ $('numberTitle').textContent='Анализ: '+p.formatInternational();
+
+ const q=encodeURIComponent('"'+p.number+'"');
+
+ link('Google · точный поиск',
+  'https://www.google.com/search?q='+q);
+
+ link('Яндекс · точный поиск',
+  'https://yandex.com/search/?text='+q);
+
+ link('Bing · точный поиск',
+  'https://www.bing.com/search?q='+q);
+
+ link('Tellows · отзывы',
+  'https://www.tellows.com/num/'+encodeURIComponent(p.nationalNumber));
+
+ res.classList.add('show');
+}
+
+$('check').addEventListener('click',check);
+
+input.addEventListener('keydown',e=>{
+ if(e.key==='Enter')check();
+});
 </script>
-
 </body>
-
 </html>
